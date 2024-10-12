@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <attribute name="id" value="html-body"/>        
+        <referenceContainer name="header-wrapper">
+    		<block class="Magento\Framework\View\Element\Template" name="search.icon" as="searchicon" template="Magento_Theme::html/header/search-toggle.phtml" />
+        </referenceContainer>
+        <move element="top.search" destination="page.top" before="-" />
+        <move element="navigation.sections" destination="header-wrapper" after="logo"/>
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+        <referenceContainer name="footer" remove="true" />
+    </body>
+</page>

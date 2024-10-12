@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Framework\View\Element\Template" name="free.payments.text" template="Magento_Catalog::product/view/free-payment.phtml" before="product.info.extrahint"/>
+        </referenceContainer>
+
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View" name="delivery" template="Magento_Catalog::product/view/product-details-delivery.phtml" group="detailed_info" >
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Delivery</argument>
+                <argument name="sort_order" xsi:type="string">20</argument>
+            </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="fit" template="Magento_Catalog::product/view/product-details-fit.phtml" group="detailed_info" >
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Fit</argument>
+                <argument name="sort_order" xsi:type="string">30</argument>
+            </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="share" template="Magento_Catalog::product/view/product-details-share.phtml" group="detailed_info" >
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Share</argument>
+                <argument name="sort_order" xsi:type="string">40</argument>
+            </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <container name="product.images.main" htmlTag="div" htmlClass="product-images" before="product.info.main">
+                <block class="Magento\Cms\Block\Block" name="product.images">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">product_images</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="Magento\Cms\Block\Block" name="product.bottom.content">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">product_bottom_description</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="sticky.sidebar.wrapper" template="Magento_Catalog::sticky-sidebar.phtml" before="-" />
+        </referenceContainer>
+
+        <move element="product.info.stock.sku" destination="product.info.main" before="-" />
+        <move element="product.info.overview" destination="product.info.main" before ="product.info.price" />
+        <move element="product.info.details" destination="content" before="-" />
+        <move element="product.bottom.content" destination="content" after="-" />
+        
+        <referenceContainer name="product.info.media" remove="true" />
+        <referenceContainer name="product.info.type" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceContainer name="product.info.extrahint" remove="true" />
+        <referenceBlock name="reviews.tab" remove="true" />
+    </body>
+</page>
