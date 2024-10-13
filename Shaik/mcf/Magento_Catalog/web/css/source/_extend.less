@@ -9,18 +9,39 @@
         width: 100%;
     }
 
-	.product-info-main {
+    .page-layout-1column .product-images {
+            position: relative;
+    }
+
+    .page-layout-1column .product-images:before {
+            background: url('../images/heart.svg') no-repeat center;
+            background-size: 100%;
+            display: inline-block;
+            content: '';
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            z-index: 99;
+    }
+
+    .page-layout-1column .product-info-main:before {
+            display: none;
+    }
+
+    .product-info-main {
         .product {
             &.attribute {
                 &.overview {
-                	float: left;
+                    float: left;
                     margin: 0;
                     width: 100%;
 
                     .value {
-                    	ul {
-                    		padding: 0 0 0 25px
-                    	}
+                        ul {
+                            padding: 0 0 0 25px
+                        }
                     }
                 }
             }
@@ -61,7 +82,7 @@
         .product-add-form {
             padding: 30px 0 0;
         }
-	}
+    }
 
     .product-options-bottom .price-box,
     .product-info-price .price-box {
@@ -244,9 +265,27 @@
         }
     }
 
+    .page-layout-1column .product-images:before {
+            display: none;
+    }
+
+    .page-layout-1column .product-info-main:before {
+            background: url('../images/heart.svg') no-repeat center;
+            background-size: 100%;
+            display: inline-block;
+            content: '';
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 0;
+            left: -50px;
+            z-index: 99;
+    }
+
     .page-layout-1column .product-info-main {
         float: left;
         width: 25%;
+        position: relative;
 
         .page-title-wrapper {
             h1 {
